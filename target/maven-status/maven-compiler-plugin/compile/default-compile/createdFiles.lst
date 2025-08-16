@@ -1,0 +1,10 @@
+com\microservice\firebasemicroservice\controllers\TestController.class
+com\microservice\firebasemicroservice\services\BidServices.class
+com\microservice\firebasemicroservice\services\impl\BidServicesImpl.class
+com\microservice\firebasemicroservice\config\FirebaseConfig.class
+com\microservice\firebasemicroservice\config\WebConfig.class
+com\microservice\firebasemicroservice\FirebasemicroserviceApplication.class
+com\microservice\firebasemicroservice\models\Test.class
+com\microservice\firebasemicroservice\models\ApiResponse.class
+com\microservice\firebasemicroservice\interceptor\ApiKeyInterceptor.class
+com\microservice\firebasemicroservice\models\Bid.class
