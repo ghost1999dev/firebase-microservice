@@ -19,7 +19,7 @@ BIDS_API_KEY=YOUR_API_KEY_HERE
 }
 ```
 
-```json
+```bash
 const BASE = process.env.BIDS_API_BASE;
 const API_KEY = process.env.BIDS_API_KEY;
 
