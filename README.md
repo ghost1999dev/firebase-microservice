@@ -18,6 +18,8 @@ BIDS_API_KEY=YOUR_API_KEY_HERE
   "amount": "500.00"
 }
 ```
+
+```json
 import axios from "axios";
 
 const api = axios.create({
@@ -40,3 +42,4 @@ export async function listBids() {
   if (!data.success) throw new Error(data.message);
   return data.data;
 }
+```
