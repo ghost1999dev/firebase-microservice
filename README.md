@@ -17,26 +17,33 @@ BIDS_API_KEY=YOUR_API_KEY_HERE
   "developer_id": 67,
   "amount": "500.00"
 }
+```
 
-import axios from "axios";
+```bash
+const BASE = process.env.BIDS_API_BASE;
+const API_KEY = process.env.BIDS_API_KEY;
 
-const api = axios.create({
-  baseURL: process.env.BIDS_API_BASE,
-  headers: {
-    "X-API-KEY": process.env.BIDS_API_KEY,
-    "Content-Type": "application/json"
-  },
-  timeout: parseInt(process.env.REQUEST_TIMEOUT_MS || "5000", 10)
-});
-
-export async function createBid(bid) {
-  const { data } = await api.post("/api/bids", bid);
-  if (!data.success) throw new Error(data.message);
-  return data.data;
+async function createBid(bid) {
+  const res = await fetch(`${BASE}/api/bids`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-API-KEY": API_KEY
+    },
+    body: JSON.stringify(bid)
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) throw new Error(json.message || `HTTP ${res.status}`);
+  return json.data;
 }
 
-export async function listBids() {
-  const { data } = await api.get("/api/bids");
-  if (!data.success) throw new Error(data.message);
-  return data.data;
+async function listBids() {
+  const res = await fetch(`${BASE}/api/bids`, {
+    headers: { "X-API-KEY": API_KEY }
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) throw new Error(json.message || `HTTP ${res.status}`);
+  return json.data;
 }
+
+```
