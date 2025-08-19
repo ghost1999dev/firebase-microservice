@@ -12,11 +12,29 @@ BIDS_API_KEY=YOUR_API_KEY_HERE
 ### Create (POST /api/bids) Payload
 ```json
 {
-  "client_id": 123,
-  "auction_id": 45,
-  "developer_id": 67,
-  "amount": "500.00"
+    "auction_id":13,
+    "user_id":90,
+    "amount":700
 }
+```
+### Create response when it is success
+
+```json
+{
+    "success": true,
+    "message": "Bid saved succesfully",
+    "data": {
+        "amount": 700,
+        "id": "Zuhp2YwVHSrmwf33o2d8",
+        "auction_id": 13,
+        "user_id": 90,
+        "createdAt": "2025-08-19T14:42:31.155322600Z",
+        "updatedAt": "2025-08-19T14:42:31.155322600Z"
+    },
+    "timestamp": "2025-08-19T14:42:35.011375900Z"
+}
+
+
 ```
 
 ```bash
